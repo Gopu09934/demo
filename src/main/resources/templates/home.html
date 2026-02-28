@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Home</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 50px;
+        }
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        .logout-form {
+            display: inline;
+        }
+        button {
+            padding: 10px 20px;
+            background-color: #f44336;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        button:hover {
+            background-color: #da190b;
+        }
+        .nav-link {
+            margin-top: 20px;
+            padding: 10px;
+        }
+        .nav-link a {
+            text-decoration: none;
+            color: #008CBA;
+            margin-right: 15px;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h2>Welcome to Application 🎉</h2>
+    <p>You are successfully logged in!</p>
+
+    <div class="nav-link">
+        <a href="/employees">View Employees</a>
+    </div>
+
+    <form class="logout-form" method="post" action="/logout">
+        <input type="hidden" name="_csrf" th:value="${_csrf.token}"/>
+        <button type="submit">Logout</button>
+    </form>
+</div>
+</body>
+</html>
